@@ -1,0 +1,1 @@
+search_result['82']=["topic_0000000000000024.html","TrayIcon.Initialize Method","Initializes the tray icon with the specified main window, icon handle, and tooltip text."];

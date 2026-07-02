@@ -1,0 +1,1 @@
+search_result['84']=["topic_0000000000000026.html","TrayIcon.Remove Method","Removes the tray icon from the system tray and clears any associated taskbar badges. Also cleans up any owned icons to prevent resource leaks."];

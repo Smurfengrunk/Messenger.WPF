@@ -1,0 +1,1 @@
+search_result['118']=["topic_0000000000000034.html","PROPVARIANT Constructor","Property to get the value of the PROPVARIANT as a string. It uses Marshal.PtrToStringUni to convert the unmanaged string pointer to a managed string."];

@@ -1,0 +1,1 @@
+search_result['128']=["topic_000000000000003E.html","Win32.SendMessage Method","Sends a message to a specified window or windows. This function is used to communicate with other windows, such as sending commands or notifications."];

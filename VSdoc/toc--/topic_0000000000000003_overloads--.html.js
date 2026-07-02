@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_0000000000000046.html"],['4',"Messenger Namespace","topic_0000000000000001.html"],['5',"App Class","topic_0000000000000002.html"],['6',"Methods","topic_0000000000000002_methods--.html"],['9',"OnStartup Method","topic_0000000000000003_overloads--.html"]];

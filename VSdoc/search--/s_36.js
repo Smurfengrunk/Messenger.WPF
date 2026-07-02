@@ -1,0 +1,1 @@
+search_result['36']=["topic_000000000000000F.html","Settings Class","Class representing the application settings for Messenger.\r\nThis class provides properties to manage user preferences such as showing badges, starting the application at login, minimizing to tray, and..."];

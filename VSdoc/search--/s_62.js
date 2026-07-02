@@ -1,0 +1,1 @@
+search_result['62']=["topic_000000000000001A.html","TaskbarBadge.InitializeFor Method","Initializes the TaskbarBadge for a specific WPF window. This method must be called before using SetBadge or Clear."];

@@ -1,0 +1,1 @@
+search_result['8']=["topic_0000000000000003_overloads--.html","App.OnStartup Method","Overrides the OnStartup method to implement single instance behavior.\r\nIf another instance of the application is already running, it brings that instance to the front and shuts down the new instance.\r..."];

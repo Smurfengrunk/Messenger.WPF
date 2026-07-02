@@ -1,0 +1,1 @@
+search_result['65']=["topic_000000000000001D.html","TaskbarDiagnostics Class","Diagnostics class for checking the integrity level, job object status, and parent process of the current process.\r\nThis is a temporary solution until a more robust method is implemented, as the curren..."];

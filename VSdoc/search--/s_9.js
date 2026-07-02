@@ -1,0 +1,1 @@
+search_result['9']=["topic_0000000000000004.html","App.OnExit Method","Overrides the OnExit method to clean up resources when the application exits. It disposes of the mutex used for single instance enforcement."];

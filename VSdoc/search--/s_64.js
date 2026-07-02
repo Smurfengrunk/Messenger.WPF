@@ -1,0 +1,1 @@
+search_result['64']=["topic_000000000000001C.html","TaskbarBadge.Clear Method","Clears the overlay icon on the taskbar button of the specified window."];
