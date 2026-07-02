@@ -16,6 +16,7 @@
     <UseWindowsForms>True</UseWindowsForms>
     <StartupObject>Messenger.App</StartupObject>
     <Version>2.0.1</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +38,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1901.177" />
     <PackageReference Include="System.Management" Version="10.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
