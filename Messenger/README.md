@@ -31,7 +31,7 @@ An unofficial Facebook Messenger desktop client for Windows, built with C# and W
 
 Download `Messenger_Setup_2.0.1.exe` from [Releases](../../releases) and run it. No administrator rights required.
 
-**First launch note:** After logging in and entering your E2E encryption PIN, the app can appear to stall on verification. Should it stall please close the app (from the tray menu) and relaunch — the second launch will prompt for the PIN once more, and from then on you go straight to your chats. This is a one-time sequence required for Facebook to establish the encrypted session on a new device.
+**First launch note:** After logging in and entering your E2E encryption PIN, the app may appear to stall on verification. Should it stall please close the app (from the tray menu) and relaunch — the second launch will prompt for the PIN once more, and from then on you go straight to your chats. This is a one-time sequence required for Facebook to establish the encrypted session on a new device.
 
 ---
 
