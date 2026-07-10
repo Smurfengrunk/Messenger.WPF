@@ -13,6 +13,14 @@
         style.id = 'messenger-wrapper-style';
         style.textContent = `
 
+            /* ── Zero out the header-height CSS variable ─────────────────── */
+            :root,
+            .__fb-light-mode:root,
+            .__fb-light-mode,
+            .__fb-dark-mode {
+                --header-height: 0px;
+            }
+
             /* ── Hide navigation bar ──────────────────────────────────── */
             header,
             [role="banner"] {
@@ -21,37 +29,52 @@
                 pointer-events: none !important;
             }
 
-            /* ── Zero 56px gap ────────────────────────────────────── */
+            /* Position adjustment so that both containers start at the same position vertically */
+            [role="navigation"] {
+                margin-top: 16px !important;
+            }
 
-            /* Facebook lägger top: 56px / top:56px som inline-style på den
-               absolut-positionerade content-ramen som ska ligga precis under
-               navigeringsfältet. När headern försvinner måste vi nollställa
-               den, annars blir det precis ett 56px tomrum längst upp. */
+            /* ── Zero 56px gap ────────────────────────────────────── */
             [style*="top: 56px"],
             [style*="top:56px"] {
                 top: 0 !important;
+                box-sizing: border-box !important;
             }
 
-            /* Same thing for padding */
             [style*="padding-top: 56px"],
             [style*="padding-top:56px"] {
                 padding-top: 0 !important;
+                box-sizing: border-box !important;
             }
 
             [style*="margin-top: 56px"],
             [style*="margin-top:56px"] {
                 margin-top: 0 !important;
+                box-sizing: border-box !important;
             }
 
-            /* Content-area is often at calc(100vh - 56px) height to fill the entire viewport below the header — we adjust to full height */
             [style*="height: calc(100vh - 56px)"],
             [style*="height:calc(100vh - 56px)"] {
                 height: 100vh !important;
+                box-sizing: border-box !important;
+            }
+
+            [style*="height: calc(100% - 56px)"],
+            [style*="height:calc(100% - 56px)"] {
+                height: 100% !important;
+                box-sizing: border-box !important;
             }
 
             [style*="min-height: calc(100vh - 56px)"],
             [style*="min-height:calc(100vh - 56px)"] {
                 min-height: 100vh !important;
+                box-sizing: border-box !important;
+            }
+
+            [style*="min-height: calc(100% - 56px)"],
+            [style*="min-height:calc(100% - 56px)"] {
+                min-height: 100% !important;
+                box-sizing: border-box !important;
             }
 
             /* ── Full height layout ─────────────────────────────────────────── */
@@ -59,10 +82,28 @@
                 height:   100% !important;
                 overflow: hidden !important;
             }
+
+            /* overflow: hidden on the outer frame elements prevents WebView2
+               from adding a page-level scrollbar. We intentionally exclude
+               .__fb-light-mode and .__fb-dark-mode here — those classes are
+               used on wrappers deep inside the panel tree, and setting
+               overflow: hidden on them clips the chat list's own scrollbar. */
+            html, body, [role="main"], #root {
+                overflow: hidden !important;
+            }
+
+            /* Hide the page-level (document) scrollbar that WebView2 would
+               show for any residual layout overflow. Targeting only html and
+               body leaves all inner scrollbars (message list, chat list)
+               completely unaffected. */
+            html::-webkit-scrollbar,
+            body::-webkit-scrollbar {
+                display: none !important;
+                width:   0 !important;
+            }
         `;
         (document.head || document.documentElement).appendChild(style);
     };
-
 
     /// <summary>
     /// Fix the main layout to fill the entire WebView2 wrapper
@@ -71,19 +112,21 @@
         const main = document.querySelector('[role="main"]');
         if (!main) return;
 
-        main.style.setProperty('top', '0', 'important');
-        main.style.setProperty('margin-top', '0', 'important');
-        main.style.setProperty('padding-top', '0', 'important');
-        main.style.setProperty('height', '100vh', 'important');
-        main.style.setProperty('max-height', '100vh', 'important');
+        // Force the main element and its parents to fill the entire viewport and prevent scrolling
+        const setFixed = (el) => {
+            el.style.setProperty('top', '0', 'important');
+            el.style.setProperty('margin-top', '0', 'important');
+            el.style.setProperty('padding-top', '0', 'important');
+            el.style.setProperty('height', 'calc(100vh - 16px)', 'important');
+            el.style.setProperty('max-height', 'calc(100vh - 16px)', 'important');
+            el.style.setProperty('overflow', 'hidden', 'important'); // Key: prevent scrolling
+        };
 
-        // Facebook is nestling [role="main"] in many div layers — reset the
-        // position uppwards in the tree so that no parent element will get an offset from the top of the WebView2 wrapper
+        setFixed(main);
+
         let node = main.parentElement;
         for (let i = 0; node && i < 4; i++, node = node.parentElement) {
-            node.style.setProperty('top', '0', 'important');
-            node.style.setProperty('margin-top', '0', 'important');
-            node.style.setProperty('padding-top', '0', 'important');
+            setFixed(node);
         }
     };
 
@@ -108,9 +151,6 @@
         fixMainLayout();
         removeBanners();
 
-        /// <summary>
-        /// Observe DOM changes and re-apply layout fixes
-        /// </summary>
         new MutationObserver(() => {
             fixMainLayout();
             removeBanners();

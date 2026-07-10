@@ -3,8 +3,8 @@
 An unofficial Facebook Messenger desktop client for Windows, built with C# and WPF. Wraps the Messenger web interface in a native window with taskbar badge support, tray icon, and persistent sessions — everything the official app used to provide before Meta discontinued it.
 
 ![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows)
-![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4)
+![Version](https://img.shields.io/badge/Version-2.0.2-blue)
 
 ---
 
@@ -29,7 +29,7 @@ An unofficial Facebook Messenger desktop client for Windows, built with C# and W
 
 ## Installation
 
-Download `Messenger_Setup_2.0.1.exe` from [Releases](../../releases) and run it. No administrator rights required.
+If you have .NET8 or newer installed download `Messenger_Setup_2.0.2.exe` from [Releases](../../releases), otherwise download the `Messenger_Setup_2.0.2 with .NET8.exe` and run it.
 
 **First launch note:** After logging in and entering your E2E encryption PIN, the app may appear to stall on verification. Should it stall please close the app (from the tray menu) and relaunch — the second launch will prompt for the PIN once more, and from then on you go straight to your chats. This is a one-time sequence required for Facebook to establish the encrypted session on a new device.
 

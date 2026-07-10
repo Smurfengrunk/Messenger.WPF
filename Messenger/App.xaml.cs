@@ -28,7 +28,8 @@ namespace Messenger
                 System.IO.File.WriteAllText("crash_log.txt", ex.ToString());
             };
 
-            // Single instance — om redan igång, lyft det fönstret istället
+            // Single instance enforcement using a named mutex.
+            // The mutex is created with a unique name, and if it already exists, it indicates that another instance of the application is running.
             _mutex = new Mutex(true, "Messenger.SingleInstance", out bool createdNew);
 
             if (!createdNew)

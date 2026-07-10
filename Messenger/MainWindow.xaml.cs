@@ -10,6 +10,8 @@ using System.Windows.Interop;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
 
+using Windows.Management.Deployment;
+
 
 namespace Messenger
 {
@@ -34,14 +36,21 @@ namespace Messenger
         {
             InitializeComponent();
 
-            // Återställ fönsterposition
+            // Restore the window state (position and size) from the saved settings.
+            // If the saved coordinates are invalid (e.g., minimized coordinates), it sets default values for left, top, width, and height.
             RestoreWindowState();
 
             this.Closing += OnWindowClosing;
             this.SourceInitialized += OnSourceInitialized;
 
             InitializeWebView();
-            TaskbarDiagnostics.Dump();
+            UpdateSettings();
+        }
+
+        private void UpdateSettings()
+        {
+            TrayIcon.SetStartup(_settings.StartAtLogin);
+            TrayIcon.SetNotification(_settings.ShowNotifications);
         }
 
         /// <summary>
@@ -53,7 +62,7 @@ namespace Messenger
         private string GetEmbeddedScript(string scriptName)
         {
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            // Notera: namespace + mappnamn + filnamn
+            // Note: namespace + directory + filename
             var resourceName = $"Messenger.Scripts.{scriptName}";
 
             using Stream? stream = assembly.GetManifestResourceStream(resourceName);
@@ -90,7 +99,7 @@ namespace Messenger
         /// </summary>
         private void RestoreWindowState()
         {
-            // Skydda mot sparade minimerat-koordinater (-32000)
+            // Guard against saving minimized coordinates (-32000)
             var left = _windowState.Left < -500 ? 100 : _windowState.Left;
             var top = _windowState.Top < -500 ? 100 : _windowState.Top;
             var width = _windowState.Width < 200 ? 1200 : _windowState.Width;
@@ -112,7 +121,7 @@ namespace Messenger
         /// <returns></returns>
         private IntPtr OnWindowMessage(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
-            // Fånga upp signalen från den nya instansen
+            // Catch the custom message sent by SingleInstanceHelper to show the existing instance of the application
             if (msg == SingleInstanceHelper.WM_SHOW_MESSENGER)
             {
                 Dispatcher.Invoke(() => ShowWindow());
@@ -149,50 +158,33 @@ namespace Messenger
         {
             if (targetWebView.CoreWebView2 != null)
             {
-                Log("CoreWebView2 is already initialized, skipping configuration.");
-                return; // Redan initierad, vi behöver inte göra något mer
+                return; // Already initialized, no need to configure again
             }
-            Log("await targetWebView.EnsureCoreWebView2Async()");
             try
             {
                 await targetWebView.EnsureCoreWebView2Async(env);
 
-                // Koppla på alla events igen
-                Log("Connecting event handlers to targetWebVew");
+                // Check all events and handlers are connected
                 targetWebView.CoreWebView2.WebMessageReceived += OnWebMessageReceived;
                 targetWebView.CoreWebView2.NavigationStarting += webView_NavigationStarting;
                 targetWebView.CoreWebView2.NewWindowRequested += OnNewWindowRequested;
                 targetWebView.CoreWebView2.NavigationCompleted += WebView_NavigationCompleted;
 
-                // Sätt UserAgent så inte Facebook klagar
-                Log("Setting user agent");
+                // Set the UserAgent to a modern browser string to avoid being blocked by Facebook
                 targetWebView.CoreWebView2.Settings.UserAgent =
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
                     "AppleWebKit/537.36 (KHTML, like Gecko) " +
                     "Chrome/124.0.0.0 Safari/537.36";
 
-                // Injicera dina egna skript
-                Log("Adding UnreadCounter script");
+                // Injicect your own scripts
                 await targetWebView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(GetEmbeddedScript("UnReadCounter.js"));
-                Log("Adding MessengerMode script");
                 await targetWebView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(GetEmbeddedScript("MessengerMode.js"));
             }
             catch (Exception ex)
             {
-                Log("Krasch i ConfigureWebViewAsync: " + ex.Message + "\n" + ex.StackTrace);
-                throw; // Återkasta för att stoppa körningen
+                System.Windows.MessageBox.Show($"Couldn't configure WebView2: {ex.Message}\n{ex.StackTrace}", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw; // Throw exception to be handled by the caller, if needed
             }
-        }
-
-        /// <summary>
-        /// Writes a log message to a file on the desktop named "messenger_debug.log". Each log entry is prefixed with the current time in "HH:mm:ss" format.
-        /// </summary>
-        /// <param name="message"></param>
-        private void Log(string message)
-        {
-            // Loggar till en fil på skrivbordet så vi kan läsa den oavsett behörighet
-            string logPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "messenger_debug.log");
-            File.AppendAllText(logPath, DateTime.Now.ToString("HH:mm:ss") + ": " + message + Environment.NewLine);
         }
 
         /// <summary>
@@ -200,40 +192,28 @@ namespace Messenger
         /// </summary>
         private async void InitializeWebView()
         {
-            Log("Startar InitializeWebView...");
 
             string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string userDataFolder = Path.Combine(localAppData, "Messenger", "WebView2Data");
 
-            Log("UserDataFolder: " + userDataFolder);
-
-            if (!Directory.Exists(userDataFolder))
-            {
-                Log("Skapar mapp...");
-                Directory.CreateDirectory(userDataFolder);
-            }
+            if (!Directory.Exists(userDataFolder)) Directory.CreateDirectory(userDataFolder);
 
             try
             {
-                Log("Försöker skapa miljö...");
                 env = await CoreWebView2Environment.CreateAsync(null, userDataFolder, null);
-                Log("Miljö skapad.");
 
                 var Web = new Microsoft.Web.WebView2.WinForms.WebView2();
                 Host.Child = Web;
                 webView = Web;
 
-                Log("Kallar ConfigureWebViewAsync...");
                 await ConfigureWebViewAsync(Web, env);
-                Log("ConfigureWebViewAsync klar.");
 
                 Web.CoreWebView2.Navigate("https://www.facebook.com/messages");
-                Log("Navigering påbörjad.");
             }
             catch (Exception ex)
             {
-                Log("FEL: " + ex.Message);
-                Log("Stacktrace: " + ex.StackTrace);
+                System.Windows.MessageBox.Show($"Couldn't start WebView2: {ex.Message}\n{ex.StackTrace}", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
             }
         }
 
@@ -263,10 +243,10 @@ namespace Messenger
                     wfHost.Child = newWebView;
                     webView = newWebView;
 
-                    // HÄR: Se till att den nya instansen får exakt samma konfiguration, skript och events!
+                    // Assure that the new WebView2 instance is configured with the same environment and settings as the previous one
                     await ConfigureWebViewAsync(webView, env);
 
-                    // Nu navigerar vi in i kaklet
+                    // Now we navigate to the target URI to ensure the user is taken to the correct thread
                     webView.Source = targetUri;
                     webView.Focus();
                 }
@@ -471,10 +451,6 @@ namespace Messenger
                 if (root.TryGetProperty("externalUrl", out var externalUrlProp) &&
                             Uri.TryCreate(externalUrlProp.GetString(), UriKind.Absolute, out var externalUri))
                 {
-                    // --- LÄGG TILL DETTA FÖR FELSÖKNING ---
-                    Debug.WriteLine($"[JS VILLE ÖPPNA EXTERNT]: {externalUri.AbsoluteUri}");
-                    // --------------------------------------
-
                     if (!CanNavigateInsideWrapper(externalUri))
                     {
                         OpenExternal(externalUri);
@@ -521,7 +497,7 @@ namespace Messenger
         /// </summary>
         private void SaveState()
         {
-            // Spara inte om fönstret är minimerat
+            // Don't save the window state if the window is minimized, as it would save invalid coordinates (-32000).
             if (this.WindowState == WindowState.Minimized)
                 return;
 

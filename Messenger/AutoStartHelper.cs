@@ -9,7 +9,7 @@ namespace Messenger
     /// </summary>
     internal static class AutoStartHelper
     {
-        // ── Konstanter ─────────────────────────────────────────────
+        // ── Constants ─────────────────────────────────────────────
 
         /// <summary>
         /// Application name used as the registry value name for autostart. This should be unique to avoid conflicts with other applications.
@@ -21,7 +21,7 @@ namespace Messenger
         /// </summary>
         private const string RegistryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
 
-        // ── Publika metoder ────────────────────────────────────────
+        // ── Public methods ────────────────────────────────────────
 
         /// <summary>
         /// Checks if the application is currently registered for autostart by looking for its entry in the registry. Returns true if the entry exists, false otherwise.

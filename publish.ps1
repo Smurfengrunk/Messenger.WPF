@@ -23,6 +23,5 @@ dotnet publish $project `
     -c $Configuration `
     -p:Platform=x64 `
     -o $OutputPath `
-    --sc
 
 Write-Host "Published $Configuration build of project $project to $OutputPath"

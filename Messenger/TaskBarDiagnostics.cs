@@ -127,7 +127,7 @@ namespace Messenger
         }
 
         // -----------------------------
-        // APPCONTAINER HEURISTIK
+        // APP CONTAINER HEURISTICS
         // -----------------------------
 
         public static bool IsLikelyAppContainer()
