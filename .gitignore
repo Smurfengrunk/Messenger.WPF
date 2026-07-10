@@ -4,3 +4,5 @@ publish/
 .appdata/
 *.user
 .vs
+/Installer/Messenger_Setup_2.0.1 with .NET8.exe
+/Installer/Messenger_Setup_2.0.1.exe
