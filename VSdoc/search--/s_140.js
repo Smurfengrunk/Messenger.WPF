@@ -1,1 +1,1 @@
-search_result['140']=["topic_0000000000000045.html","WindowStateStore.Save Method","Saves the current window state to the JSON file.\r\nIt serializes the current instance of WindowStateStore to a JSON string and writes it to the file, formatting it with indentation for readability."];
+search_result['140']=["topic_0000000000000043.html","WindowStateStore.Height Property",""];

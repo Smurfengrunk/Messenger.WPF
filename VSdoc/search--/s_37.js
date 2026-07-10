@@ -1,1 +1,1 @@
-search_result['37']=["topic_000000000000000F_attached_props--.html","Settings Attached Properties",""];
+search_result['37']=["topic_000000000000000E.html","MainWindow.CloseForReal Method","Closes the main window and sets a flag indicating that the application should really close, allowing the Closing event to proceed without cancellation."];

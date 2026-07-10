@@ -57,7 +57,7 @@ namespace Messenger
         /// Gets the content of an embedded script resource by its name. The script is expected to be located in the "Messenger.Scripts" namespace.
         /// </summary>
         /// <param name="scriptName"></param>
-        /// <returns></returns>
+        /// <returns>JavaScript code for loaded script</returns>
         /// <exception cref="FileNotFoundException"></exception>
         private string GetEmbeddedScript(string scriptName)
         {
@@ -118,7 +118,7 @@ namespace Messenger
         /// <param name="msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to original window procedure or zero</returns>
         private IntPtr OnWindowMessage(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
             // Catch the custom message sent by SingleInstanceHelper to show the existing instance of the application
@@ -153,7 +153,6 @@ namespace Messenger
         /// Configures the given WebView2 instance by ensuring its CoreWebView2 is initialized, attaching event handlers, setting the UserAgent, and injecting custom scripts.
         /// </summary>
         /// <param name="targetWebView"></param>
-        /// <returns></returns>
         private async Task ConfigureWebViewAsync(Microsoft.Web.WebView2.WinForms.WebView2 targetWebView, CoreWebView2Environment env)
         {
             if (targetWebView.CoreWebView2 != null)
@@ -304,7 +303,7 @@ namespace Messenger
         /// Checks if the given URI can be navigated inside the wrapper application.
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied web page is Messenger, Facebook or Meta Authorization</returns>
         private static bool CanNavigateInsideWrapper(Uri uri)
         {
             if (!uri.Scheme.Equals(Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase) &&
@@ -320,7 +319,7 @@ namespace Messenger
         /// Checks if the given URI is a WebView utility navigation (e.g., "about:", "edge:", or "chrome:").
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a Webview utility</returns>
         private static bool IsWebViewUtilityNavigation(Uri uri)
         {
             return uri.Scheme.Equals("about", StringComparison.OrdinalIgnoreCase) ||
@@ -332,7 +331,7 @@ namespace Messenger
         /// Checks if the given URI is a Messenger page (i.e., starts with "/messages" on the Facebook host).
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a messenger page</returns>
         private static bool IsMessengerPage(Uri uri)
         {
             return IsFacebookHost(uri) &&
@@ -343,7 +342,7 @@ namespace Messenger
         /// Checks if the given URI is a Facebook authentication page (e.g., login, checkpoint, two-factor authentication, etc.).
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a Facebook authorization page</returns>
         private static bool IsFacebookAuthPage(Uri uri)
         {
             if (!IsFacebookHost(uri))
@@ -373,7 +372,7 @@ namespace Messenger
         /// Checks if the given URI is a Meta authentication page (e.g., login, auth, checkpoint, two-factor authentication, etc.) on the Meta accounts or auth hosts.
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a Meta authorization page</returns>
         private static bool IsMetaAuthPage(Uri uri)
         {
             if (!IsMetaAuthHost(uri))
@@ -395,7 +394,7 @@ namespace Messenger
         /// Checks if the given URI is a Facebook host (i.e., "facebook.com" or any subdomain of "facebook.com").
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a Facebook host page</returns>
         private static bool IsFacebookHost(Uri uri)
         {
             return uri.Host.Equals("facebook.com", StringComparison.OrdinalIgnoreCase) ||
@@ -406,7 +405,7 @@ namespace Messenger
         /// Checks if the given URI is a Meta authentication host (i.e., "accounts.meta.com", "auth.meta.com", or any subdomain of these).
         /// </summary>
         /// <param name="uri"></param>
-        /// <returns></returns>
+        /// <returns>True if supplied URI is a Meta authorization host page</returns>
         private static bool IsMetaAuthHost(Uri uri)
         {
             return uri.Host.Equals("accounts.meta.com", StringComparison.OrdinalIgnoreCase) ||

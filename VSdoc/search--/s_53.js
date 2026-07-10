@@ -1,1 +1,1 @@
-search_result['53']=["topic_0000000000000016_vars--.html","SingleInstanceHelper Fields",""];
+search_result['53']=["topic_0000000000000016_methods--.html","SingleInstanceHelper Methods",""];

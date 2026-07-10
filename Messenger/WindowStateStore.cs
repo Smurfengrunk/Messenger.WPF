@@ -37,7 +37,7 @@ public class WindowStateStore
     /// <summary>
     /// Loads the window state from the JSON file. If the file does not exist, it returns a new instance of WindowStateStore with default values.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>WindowStateStore object</returns>
     public static WindowStateStore Load()
     {
         if (!File.Exists(Path))

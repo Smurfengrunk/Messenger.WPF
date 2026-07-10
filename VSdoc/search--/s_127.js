@@ -1,1 +1,1 @@
-search_result['127']=["topic_000000000000003D.html","Win32.LoadImage Method","Loads an image (icon) from a specified file and returns a handle to the image.\r\nThis function is used to load icons for use in Windows applications, such as setting the icon for a window."];
+search_result['127']=["topic_000000000000003B.html","IMAGE_ICON Field",""];

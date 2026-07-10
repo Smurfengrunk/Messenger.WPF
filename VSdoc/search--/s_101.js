@@ -1,1 +1,1 @@
-search_result['101']=["topic_000000000000002D.html","IPropertyStore Interface","COM interface for accessing the property store of a window, allowing you to get and set properties such as the AppUserModelID."];
+search_result['101']=["topic_000000000000002B.html","pid Field",""];

@@ -1,1 +1,1 @@
-search_result['94']=["topic_0000000000000029_events--.html","PROPERTYKEY Events",""];
+search_result['94']=["topic_0000000000000029.html","PROPERTYKEY Structure","Struct representing a property key, which is used to identify properties in the Windows Property System."];

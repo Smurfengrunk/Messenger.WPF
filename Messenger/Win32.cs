@@ -82,7 +82,6 @@ namespace Messenger
         /// <param name="hwnd"></param>
         /// <param name="iid"></param>
         /// <param name="propertyStore"></param>
-        /// <returns></returns>
         [DllImport("shell32.dll", SetLastError = true)]
         private static extern int SHGetPropertyStoreForWindow(
             IntPtr hwnd, ref Guid iid, out IPropertyStore propertyStore);
@@ -130,7 +129,7 @@ namespace Messenger
         /// <param name="cx"></param>
         /// <param name="cy"></param>
         /// <param name="flags"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to loaded icon image</returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr LoadImage(
             IntPtr hInst, string name, uint type, int cx, int cy, uint flags);
@@ -142,7 +141,7 @@ namespace Messenger
         /// <param name="Msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
+        /// <returns> Pointer to result of message processing</returns>
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr SendMessage(
             IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);

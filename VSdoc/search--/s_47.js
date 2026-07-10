@@ -1,1 +1,1 @@
-search_result['47']=["topic_0000000000000015.html","Settings.Save Method","Saves the current settings to the JSON file located at the specified path."];
+search_result['47']=["topic_0000000000000013.html","Settings.ShowNotifications Property",""];

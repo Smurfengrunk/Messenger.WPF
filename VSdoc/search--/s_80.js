@@ -1,1 +1,1 @@
-search_result['80']=["topic_0000000000000023_props--.html","TrayIcon Properties",""];
+search_result['80']=["topic_0000000000000023_events--.html","TrayIcon Events",""];

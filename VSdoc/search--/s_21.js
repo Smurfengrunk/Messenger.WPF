@@ -1,1 +1,1 @@
-search_result['21']=["topic_0000000000000008_events--.html","IconLoader Events",""];
+search_result['21']=["topic_0000000000000008.html","IconLoader Class","Class for loading icons from files using the Windows API."];

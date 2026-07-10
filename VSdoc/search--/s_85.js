@@ -1,1 +1,1 @@
-search_result['85']=["topic_0000000000000027.html","TrayIcon.HandleMessage Method","Handles messages sent to the tray icon, such as mouse clicks.\r\nIt responds to left-clicks by showing the main window and right-clicks by displaying a context menu with various options."];
+search_result['85']=["topic_0000000000000025.html","TrayIcon.UpdateUnread Method","Updates the unread count displayed on the tray icon and taskbar overlay badge, if applicable."];

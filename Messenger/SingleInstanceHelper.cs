@@ -14,7 +14,6 @@ namespace Messenger
         /// Sends a message to all top-level windows to bring the existing instance of the application to the front.
         /// </summary>
         /// <param name="lpString"></param>
-        /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern uint RegisterWindowMessage(string lpString);
 
@@ -25,7 +24,6 @@ namespace Messenger
         /// <param name="Msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 

@@ -1,1 +1,1 @@
-search_result['141']=["topic_0000000000000046.html","SOLUTION-WIDE PROPERTIES Reference ",""];
+search_result['141']=["topic_0000000000000044.html","WindowStateStore.Load Method","Loads the window state from the JSON file. If the file does not exist, it returns a new instance of WindowStateStore with default values."];

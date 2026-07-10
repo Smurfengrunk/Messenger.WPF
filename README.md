@@ -67,6 +67,8 @@ Output lands in `Messenger/publish/win-x64` and is ready for Inno Setup packagin
 
 The app hosts Facebook Messenger (`facebook.com/messages`) in a `WebView2` control embedded via `WindowsFormsHost`. A persistent user data folder is stored at `%LOCALAPPDATA%\MessengerWrapper\WebView2`, so login sessions and cached data survive restarts.
 
+The code is commented with VS XML and some additional comments, there are things that might not be thoroughly explained but I think the level of comments are mostly satisfactory.
+
 ### Unread count detection
 
 JavaScript is injected at document creation and polls the DOM every 3 seconds, scanning for language-specific accessibility strings that Facebook injects for screen readers:

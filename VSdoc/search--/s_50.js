@@ -1,1 +1,1 @@
-search_result['50']=["topic_0000000000000016_events--.html","SingleInstanceHelper Events",""];
+search_result['50']=["topic_0000000000000016.html","SingleInstanceHelper Class","Class to help ensure that only a single instance of the application is running."];

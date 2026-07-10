@@ -26,7 +26,7 @@ namespace Messenger
         /// <param name="msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to WndProc</returns>
         private delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Messenger
         /// <param name="hWnd"></param>
         /// <param name="nIndex"></param>
         /// <param name="newProc"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to window procedure</returns>
         [DllImport("user32.dll")]
         private static extern IntPtr SetWindowLongPtr(IntPtr hWnd, int nIndex, WndProc newProc);
 
@@ -48,7 +48,7 @@ namespace Messenger
         /// <param name="msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to original window procedure</returns>
         [DllImport("user32.dll")]
         private static extern IntPtr CallWindowProc(
             IntPtr lpPrevWndFunc, IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
@@ -74,7 +74,7 @@ namespace Messenger
         /// <param name="msg"></param>
         /// <param name="wParam"></param>
         /// <param name="lParam"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to original window procedure</returns>
         public static IntPtr CallOld(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam)
             => CallWindowProc(_oldWndProc, hwnd, msg, wParam, lParam);
     }

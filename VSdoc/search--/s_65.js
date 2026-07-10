@@ -1,1 +1,1 @@
-search_result['65']=["topic_000000000000001D.html","TaskbarDiagnostics Class","Diagnostics class for checking the integrity level, job object status, and parent process of the current process.\r\nThis is a temporary solution until a more robust method is implemented, as the curren..."];
+search_result['65']=["topic_000000000000001B.html","TaskbarBadge.SetBadge Method","Sets an overlay icon on the taskbar button of the specified window.\r\nThe icon is represented by a handle to an icon (hIcon). If hIcon is IntPtr.Zero, it will clear the overlay icon."];

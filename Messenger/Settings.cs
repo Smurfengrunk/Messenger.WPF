@@ -27,7 +27,7 @@ namespace Messenger
         /// <summary>
         /// Loads the settings from the JSON file located at the specified path.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Settings object</returns>
         public static Settings Load()
         {
             if (!File.Exists(Path))

@@ -1,1 +1,1 @@
-search_result['57']=["topic_0000000000000019_attached_props--.html","TaskbarBadge Attached Properties",""];
+search_result['57']=["topic_0000000000000018.html","SingleInstanceHelper.BringExistingToFront Method","Brings the existing instance of the application to the front by broadcasting a message to all top-level windows."];

@@ -1,1 +1,1 @@
-search_result['49']=["topic_0000000000000016_attached_props--.html","SingleInstanceHelper Attached Properties",""];
+search_result['49']=["topic_0000000000000015.html","Settings.Save Method","Saves the current settings to the JSON file located at the specified path."];

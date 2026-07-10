@@ -280,14 +280,13 @@ namespace Messenger
         /// </summary>
         /// <param name="dwMessage"></param>
         /// <param name="lpdata"></param>
-        /// <returns></returns>
         [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
         private static extern bool Shell_NotifyIcon(int dwMessage, ref NOTIFYICONDATA lpdata);
 
         /// <summary>
         /// Creates a popup menu that can be displayed in response to user interactions with the tray icon, such as right-clicking.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Pointer to PopUpMenu</returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr CreatePopupMenu();
 
@@ -298,7 +297,6 @@ namespace Messenger
         /// Gets the current position of the cursor in screen coordinates, which is useful for positioning context menus relative to the mouse pointer.
         /// </summary>
         /// <param name="lpPoint"></param>
-        /// <returns></returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern bool GetCursorPos(out POINT lpPoint);
 
@@ -312,7 +310,7 @@ namespace Messenger
         /// <param name="nReserved"></param>
         /// <param name="hWnd"></param>
         /// <param name="prcRect"></param>
-        /// <returns></returns>
+        /// <returns>Command ID of chosen command in popup menu</returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern int TrackPopupMenu(IntPtr hMenu, uint uFlags, int x, int y, int nReserved, IntPtr hWnd, IntPtr prcRect);
 
@@ -321,7 +319,6 @@ namespace Messenger
         /// This is used when the user interacts with the tray icon to ensure the main application window is visible.
         /// </summary>
         /// <param name="hWnd"></param>
-        /// <returns></returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 

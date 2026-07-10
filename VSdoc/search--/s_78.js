@@ -1,1 +1,1 @@
-search_result['78']=["topic_0000000000000023_events--.html","TrayIcon Events",""];
+search_result['78']=["topic_0000000000000023.html","TrayIcon Class","Static class for managing the system tray icon and its associated functionality,\r\nincluding updating unread counts, showing context menus, and handling user interactions with the tray icon."];

@@ -1,1 +1,1 @@
-search_result['12']=["topic_0000000000000005_attached_props--.html","HwndHook Attached Properties",""];
+search_result['12']=["topic_0000000000000004_overloads--.html","App.OnExit Method","Overrides the OnExit method to clean up resources when the application exits. It disposes of the mutex used for single instance enforcement."];

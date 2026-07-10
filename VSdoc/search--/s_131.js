@@ -1,1 +1,1 @@
-search_result['131']=["topic_000000000000003F_events--.html","WindowStateStore Events",""];
+search_result['131']=["topic_000000000000003F.html","WindowStateStore Class","Class to store and manage the state of the application window, including its position and size.\r\nIt provides methods to load and save the window state to a JSON file in the local application data fold..."];

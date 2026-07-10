@@ -1,1 +1,1 @@
-search_result['33']=["topic_000000000000000C.html","MainWindow Constructor","MainWindow constructor. Initializes the main window, restores its position, sets up event handlers, and initializes the WebView2 control."];
+search_result['33']=["topic_000000000000000B_props--.html","MainWindow Properties",""];

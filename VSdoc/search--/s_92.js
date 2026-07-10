@@ -1,1 +1,1 @@
-search_result['92']=["topic_0000000000000029.html","PROPERTYKEY Structure","Struct representing a property key, which is used to identify properties in the Windows Property System."];
+search_result['92']=["topic_0000000000000028_props--.html","Win32 Properties",""];

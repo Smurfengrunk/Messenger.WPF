@@ -1,1 +1,1 @@
-search_result['129']=["topic_000000000000003F.html","WindowStateStore Class","Class to store and manage the state of the application window, including its position and size.\r\nIt provides methods to load and save the window state to a JSON file in the local application data fold..."];
+search_result['129']=["topic_000000000000003D.html","Win32.LoadImage Method","Loads an image (icon) from a specified file and returns a handle to the image.\r\nThis function is used to load icons for use in Windows applications, such as setting the icon for a window."];

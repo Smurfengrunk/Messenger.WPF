@@ -1,1 +1,1 @@
-search_result['64']=["topic_000000000000001C.html","TaskbarBadge.Clear Method","Clears the overlay icon on the taskbar button of the specified window."];
+search_result['64']=["topic_000000000000001A.html","TaskbarBadge.InitializeFor Method","Initializes the TaskbarBadge for a specific WPF window. This method must be called before using SetBadge or Clear."];

@@ -1,1 +1,1 @@
-search_result['27']=["topic_000000000000000B.html","MainWindow Class","Class representing the main window of the Messenger WPF application.\r\nIt handles window state restoration, WebView2 initialization, navigation handling, and inter-process communication for single inst..."];
+search_result['27']=["topic_0000000000000009.html","IconLoader.LoadHIcon Method",""];

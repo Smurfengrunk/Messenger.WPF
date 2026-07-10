@@ -1,1 +1,1 @@
-search_result['120']=["topic_0000000000000036.html","Win32.SetWindowAppId Method","Sets the AppUserModelID for a specified window handle (hwnd) using the Windows Property System.\r\nThis method retrieves the property store for the window and sets the AppUserModelID property to the spe..."];
+search_result['120']=["topic_0000000000000034.html","PROPVARIANT Constructor","Property to get the value of the PROPVARIANT as a string. It uses Marshal.PtrToStringUni to convert the unmanaged string pointer to a managed string."];

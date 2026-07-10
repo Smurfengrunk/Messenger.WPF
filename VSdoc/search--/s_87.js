@@ -1,1 +1,1 @@
-search_result['87']=["topic_0000000000000028_attached_props--.html","Win32 Attached Properties",""];
+search_result['87']=["topic_0000000000000027.html","TrayIcon.HandleMessage Method","Handles messages sent to the tray icon, such as mouse clicks.\r\nIt responds to left-clicks by showing the main window and right-clicks by displaying a context menu with various options."];

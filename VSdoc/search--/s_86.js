@@ -1,1 +1,1 @@
-search_result['86']=["topic_0000000000000028.html","Win32 Class","Class containing Win32 API functions and structures for interacting with Windows features, such as setting the AppUserModelID and sending messages to windows."];
+search_result['86']=["topic_0000000000000026.html","TrayIcon.Remove Method","Removes the tray icon from the system tray and clears any associated taskbar badges. Also cleans up any owned icons to prevent resource leaks."];

@@ -1,1 +1,1 @@
-search_result['1']=["topic_0000000000000002.html","App Class","Class for the WPF application. This class is responsible for managing the application\u0027s lifecycle, including startup and exit events. It ensures that only a single instance of the application can run ..."];
+search_result['1']=["search--.html","Search",""];

@@ -34,7 +34,7 @@ namespace Messenger
         /// Creates a taskbar overlay icon with a badge count.
         /// </summary>
         /// <param name="count"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to image handle</returns>
         public static IntPtr CreateOverlayIcon(int count)
         {
             using var bitmap = CreateTransparentBitmap();
@@ -48,7 +48,7 @@ namespace Messenger
         /// <summary>
         /// Creates a transparent bitmap of the specified icon size.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Icon bitmap</returns>
         private static Bitmap CreateTransparentBitmap()
         {
             var bitmap = new Bitmap(IconSize, IconSize, PixelFormat.Format32bppArgb);
@@ -60,7 +60,7 @@ namespace Messenger
         /// Creates a Graphics object from the given bitmap with high-quality rendering settings.
         /// </summary>
         /// <param name="bitmap"></param>
-        /// <returns></returns>
+        /// <returns>Graphics representation of icon bitmap</returns>
         private static Graphics CreateGraphics(Bitmap bitmap)
         {
             var graphics = Graphics.FromImage(bitmap);
@@ -118,7 +118,7 @@ namespace Messenger
         /// Gets the bounds for the tray badge based on the length of the text. The badge size and position are adjusted to accommodate different text lengths.
         /// </summary>
         /// <param name="text"></param>
-        /// <returns></returns>
+        /// <returns>Rectangle for tray icon text</returns>
         private static RectangleF GetTrayBadgeBounds(string text)
         {
             return text.Length switch
@@ -133,7 +133,7 @@ namespace Messenger
         /// Gets the appropriate font size for the tray badge based on the length of the text. The font size is adjusted to ensure that the text fits well within the badge.
         /// </summary>
         /// <param name="text"></param>
-        /// <returns></returns>
+        /// <returns>Font size for tray Icon</returns>
         private static float GetTrayFontSize(string text)
         {
             return text.Length switch
@@ -148,7 +148,7 @@ namespace Messenger
         /// Gets the appropriate font size for the taskbar overlay badge based on the length of the text. The font size is adjusted to ensure that the text fits well within the badge.
         /// </summary>
         /// <param name="text"></param>
-        /// <returns></returns>
+        /// <returns>Overlay font size</returns>
         private static float GetOverlayFontSize(string text)
         {
             return text.Length switch
@@ -164,7 +164,7 @@ namespace Messenger
         /// If the count is zero or negative, it returns an empty string. If the count exceeds 99, it returns "99+" to indicate a large number of unread messages.
         /// </summary>
         /// <param name="count"></param>
-        /// <returns></returns>
+        /// <returns>´String containing unread messages</returns>
         private static string FormatCount(int count)
         {
             if (count <= 0)
@@ -178,7 +178,7 @@ namespace Messenger
         /// </summary>
         /// <param name="rect"></param>
         /// <param name="radius"></param>
-        /// <returns></returns>
+        /// <returns>Graphics path for supplied rect and radius</returns>
         private static GraphicsPath CreateRoundRect(RectangleF rect, float radius)
         {
             var path = new GraphicsPath();

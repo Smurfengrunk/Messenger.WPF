@@ -1,1 +1,1 @@
-search_result['66']=["topic_000000000000001D_attached_props--.html","TaskbarDiagnostics Attached Properties",""];
+search_result['66']=["topic_000000000000001C.html","TaskbarBadge.Clear Method","Clears the overlay icon on the taskbar button of the specified window."];

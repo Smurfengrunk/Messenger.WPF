@@ -1,1 +1,1 @@
-search_result['112']=["topic_0000000000000033.html","PROPVARIANT Class","Struct representing a PROPVARIANT, which is used to store property values in the Windows Property System.\r\nThis class implements IDisposable to ensure that unmanaged memory is properly released."];
+search_result['112']=["topic_0000000000000031.html","IPropertyStore.SetValue Method",""];

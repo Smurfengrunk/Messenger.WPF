@@ -1,1 +1,1 @@
-search_result['130']=["topic_000000000000003F_attached_props--.html","WindowStateStore Attached Properties",""];
+search_result['130']=["topic_000000000000003E.html","Win32.SendMessage Method","Sends a message to a specified window or windows. This function is used to communicate with other windows, such as sending commands or notifications."];

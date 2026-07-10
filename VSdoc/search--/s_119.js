@@ -1,1 +1,1 @@
-search_result['119']=["topic_0000000000000035.html","PROPVARIANT.Dispose Method","Disposes of the PROPVARIANT, freeing any unmanaged memory allocated for the string value. This is important to prevent memory leaks when working with unmanaged resources."];
+search_result['119']=["topic_0000000000000033_vars--.html","PROPVARIANT Fields",""];

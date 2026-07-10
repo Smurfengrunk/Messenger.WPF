@@ -1,1 +1,1 @@
-search_result['35']=["topic_000000000000000E.html","MainWindow.CloseForReal Method","Closes the main window and sets a flag indicating that the application should really close, allowing the Closing event to proceed without cancellation."];
+search_result['35']=["topic_000000000000000C.html","MainWindow Constructor","MainWindow constructor. Initializes the main window, restores its position, sets up event handlers, and initializes the WebView2 control."];

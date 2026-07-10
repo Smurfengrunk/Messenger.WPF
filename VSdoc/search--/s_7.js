@@ -1,1 +1,1 @@
-search_result['7']=["topic_0000000000000003.html","App.OnStartup Method","Overrides the OnStartup method to implement single instance behavior.\r\nIf another instance of the application is already running, it brings that instance to the front and shuts down the new instance.\r..."];
+search_result['7']=["topic_0000000000000002_props--.html","App Properties",""];

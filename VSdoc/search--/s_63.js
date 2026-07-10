@@ -1,1 +1,1 @@
-search_result['63']=["topic_000000000000001B.html","TaskbarBadge.SetBadge Method","Sets an overlay icon on the taskbar button of the specified window.\r\nThe icon is represented by a handle to an icon (hIcon). If hIcon is IntPtr.Zero, it will clear the overlay icon."];
+search_result['63']=["topic_0000000000000019_vars--.html","TaskbarBadge Fields",""];

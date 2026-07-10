@@ -1,1 +1,1 @@
-search_result['122']=["topic_0000000000000038.html","WM_SETICON Field","Constants for Windows messages and icon types used in the Win32 API."];
+search_result['122']=["topic_0000000000000036.html","Win32.SetWindowAppId Method","Sets the AppUserModelID for a specified window handle (hwnd) using the Windows Property System.\r\nThis method retrieves the property store for the window and sets the AppUserModelID property to the spe..."];

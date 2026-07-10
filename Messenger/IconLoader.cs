@@ -17,7 +17,7 @@ namespace Messenger
         /// <param name="cx"></param>
         /// <param name="cy"></param>
         /// <param name="fuLoad"></param>
-        /// <returns></returns>
+        /// <returns>Pointer to image</returns>
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr LoadImage(
             IntPtr hInst, string name, uint type, int cx, int cy, uint fuLoad);
@@ -32,7 +32,7 @@ namespace Messenger
         /// Destroys an icon handle to free resources.
         /// </summary>
         /// <param name="hIcon"></param>
-        /// <returns></returns>
+        /// <returns>Destroy status for icon</returns>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool DestroyIcon(IntPtr hIcon);
 

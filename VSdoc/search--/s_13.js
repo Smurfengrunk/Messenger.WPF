@@ -1,1 +1,1 @@
-search_result['13']=["topic_0000000000000005_events--.html","HwndHook Events",""];
+search_result['13']=["topic_0000000000000005.html","HwndHook Class","Class for hooking into the window procedure of a window to intercept messages."];
