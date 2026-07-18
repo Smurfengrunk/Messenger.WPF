@@ -1,5 +1,5 @@
 #define MyAppName      "Messenger"
-#define MyAppVersion   "2.0.2"
+#define MyAppVersion   "2.0.3"
 #define MyAppExeName   "Messenger.exe"
 #define MyAppPublisher "Tomas Lundqvist"
 #define SourceDir      "D:\vsproj\c#\Messenger.WPF\publish_complete"

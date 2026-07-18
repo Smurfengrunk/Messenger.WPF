@@ -29,7 +29,7 @@
                 pointer-events: none !important;
             }
 
-            /* Position adjustment so that both containers start at the same position vertically */
+            /* Justering för att chat-listan inte ska börja för högt upp */
             [role="navigation"] {
                 margin-top: 16px !important;
             }
@@ -84,22 +84,36 @@
             }
 
             /* overflow: hidden on the outer frame elements prevents WebView2
-               from adding a page-level scrollbar. We intentionally exclude
-               .__fb-light-mode and .__fb-dark-mode here — those classes are
-               used on wrappers deep inside the panel tree, and setting
-               overflow: hidden on them clips the chat list's own scrollbar. */
+               from adding a page-level scrollbar. .__fb-light-mode and
+               .__fb-dark-mode are intentionally excluded: those classes appear
+               on wrappers deep inside both panels, and including them would
+               clip the chat list's own scrollbar. */
             html, body, [role="main"], #root {
                 overflow: hidden !important;
             }
 
-            /* Hide the page-level (document) scrollbar that WebView2 would
-               show for any residual layout overflow. Targeting only html and
-               body leaves all inner scrollbars (message list, chat list)
-               completely unaffected. */
+            /* Hide only the document-level scrollbar that WebView2 adds for
+               residual layout overflow — inner scrollbars (message list, chat
+               list) are not targeted by this rule and remain fully functional. */
             html::-webkit-scrollbar,
             body::-webkit-scrollbar {
                 display: none !important;
                 width:   0 !important;
+            }
+
+            /* ── Hide notification bubble ─────────────────────────────────── */
+            /* Facebook shows a popup in the bottom-left corner when a new
+               notification arrives. The selectors below hide the bubble content
+               while leaving the container intact so FB's own code doesn't break.
+               Adapted from Social Fixer "Hide Notification Bubble" (updated
+               2025-08-16, verified for 2024-2025 Facebook layouts). */
+            .xixxii4[class*='-mode'] ul.xe8uvvx li.x1hc1fzr.x7lz9yc > :not(.x1jx94hy):not([class*='-mode']),
+            .xixxii4[class*='-mode'] ul.x3ct3a4  li.x1hc1fzr.x7lz9yc > :not(.x1jx94hy):not([class*='-mode']) {
+                display: none !important;
+            }
+            .xixxii4 ul.xe8uvvx li,
+            .xixxii4 ul.x3ct3a4  li {
+                transition-property: none !important;
             }
         `;
         (document.head || document.documentElement).appendChild(style);
