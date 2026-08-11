@@ -35,6 +35,13 @@ If you have .NET8 or newer installed download `Messenger_Setup_2.0.2.exe` from [
 
 ---
 
+## Flaws
+
+- In some situations the app fails to load conversations other than read-only ones. This is a known issue with the Messenger web interface and is not caused by this wrapper. If I find a solution to this I will of course fix it, but it's a bit hard as it's fairly intermittent, for now the solution is as described below.
+  The workaround is to either close and reopen the app (via the tray menu), another way is to open the conversation in a browser, which should then allow it to load in the app.
+
+---
+
 ## Building from source
 
 ### Prerequisites

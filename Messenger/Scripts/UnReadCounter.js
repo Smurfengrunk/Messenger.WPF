@@ -6,4 +6,4 @@ setInterval(() => {
         .filter(el => el.textContent?.includes('Oläst meddelande:'))
         .length;
     window.chrome.webview.postMessage(JSON.stringify({ unread }));
-}, 3000);
+}, 600000);
